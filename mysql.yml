@@ -1,0 +1,27 @@
+---
+  - name: mysql  Installation
+    hosts: all
+    become: true
+    tasks:
+      - name: Install the package wget
+        yum:
+          name: wget
+
+      - name: return motd to registered var
+        command: wget https://repo.mysql.com/mysql80-community-release-el7-1.noarch.rpm
+
+
+      - name: return motd to registered var
+        command: sudo yum localinstall mysql80-community-release-el7-1.noarch.rpm -y
+        become: true
+
+      - name: Run "apt-get update"
+        yum:
+          name: mysql-community-server
+          update_cache: yes
+
+      - name: Start 
+        service:
+          name: mysqld
+          state: started
+        become: true
