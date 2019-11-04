@@ -1,5 +1,5 @@
 FROM ansible/centos7-ansible:stable
-MAINTAINER devops satish.akkapu@eaiesb.com
+MAINTAINER devops satish.example@123.com
 
 WORKDIR /home/centos
 
